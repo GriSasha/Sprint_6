@@ -14,6 +14,11 @@ class AboutRentPageLocators:
     comment_for_courier = (By.XPATH, "//input[@placeholder='Комментарий для курьера']")
     order_button_in_form =  (By.XPATH, "//div[contains(@class, 'Order_Buttons')]//button[normalize-space()='Заказать']")
     back_button_in_form =  (By.XPATH, "//div[contains(@class, 'Order_Buttons')]//button[normalize-space()='Назад']")
+    
+    
+    @staticmethod
+    def period_option(period_map, period):
+        return (By.XPATH,f"//div[contains(@class,'Dropdown-option') and normalize-space()='{period_map[period]}']")
 
     @staticmethod
     def day_in_calendar(day):

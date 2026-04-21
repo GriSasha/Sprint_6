@@ -1,9 +1,6 @@
 
 from locators.about_rent_page_locators import AboutRentPageLocators
 from pages.base_page import BasePage
-from selenium.webdriver.common.by import By
-
-
 
 class AboutRentPage(BasePage):
     def check_header_about_rent(self):
@@ -31,11 +28,8 @@ class AboutRentPage(BasePage):
 
         self.click_to_element(AboutRentPageLocators.rent_period)
 
-        option = (
-            By.XPATH,
-            f"//div[contains(@class,'Dropdown-option') and normalize-space()='{period_map[period]}']"
-        )
-        self.wait_element_to_be_clickable(option).click()
+        
+        self.wait_element_to_be_clickable(AboutRentPageLocators.period_option(period_map, period)).click()
 
     def choose_scooter_color(self, color):
         color_map = {

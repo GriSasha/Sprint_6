@@ -6,7 +6,6 @@ from pages.whos_scooter_page import WhosScooterPage
 from pages.about_rent_page import AboutRentPage
 from pages.confirm_window_page import ConfirmWindowPage
 from pages.ordered_window_page import OrderedWindowPage
-from pages.how_it_works_page import HowItWorksPage
 from urls import Urls
 
 class TestFillOrderForm:

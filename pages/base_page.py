@@ -1,6 +1,6 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+from locators.base_page_locators import BasePageLocators
 
 class BasePage:
     def __init__(self, driver):
@@ -42,19 +42,14 @@ class BasePage:
         return self.driver.current_url
     
     def wait_number_of_windows(self, count, time=10):
-        return WebDriverWait(self.driver, time).until(
-        EC.number_of_windows_to_be(count)
-        )
+        return WebDriverWait(self.driver, time).until(EC.number_of_windows_to_be(count))
 
     def wait_for_url_contains(self, text, time=10):
-        return WebDriverWait(self.driver, time).until(
-        EC.url_contains(text)
-        )
-
+        return WebDriverWait(self.driver, time).until(EC.url_contains(text))
 
     def accept_cookies(self):
         try:
-            self.driver.find_element(By.ID, "rcc-confirm-button").click()
+            self.click_to_element(BasePageLocators.accept_cookies)
         except:
             pass
 

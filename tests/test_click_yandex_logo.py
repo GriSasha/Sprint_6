@@ -2,8 +2,6 @@ import allure
 from urls import Urls
 from pages.main_page import MainPage
 from pages.dzen_page import DzenPage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 
 class TestClickYandexLogo:
