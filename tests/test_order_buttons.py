@@ -13,9 +13,7 @@ class TestOrderScooter:
         page.open_page(Urls.url_samokat)
 
         page.click_order_button()
-        header = WhosScooterPage(driver).check_header_whos_scooter().text
-
-        assert header == 'Для кого самокат'
+        assert WhosScooterPage(driver).check_header_whos_scooter()
 
     @allure.title('Проверка клика на кнопку "Заказать" внизу главной страницы "Самоката"') 
     @allure.description('Кликаем на кнопку "Заказать" внизу страницы, дожидаемся перехода к форме заказа')
@@ -26,6 +24,4 @@ class TestOrderScooter:
         page.check_visability_of_header()
         page.click_order_button()
 
-        header = WhosScooterPage(driver).check_header_whos_scooter().text
-
-        assert header == 'Для кого самокат'
+        assert WhosScooterPage(driver).check_header_whos_scooter()

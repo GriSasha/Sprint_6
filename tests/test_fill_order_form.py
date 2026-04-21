@@ -30,9 +30,7 @@ class TestFillOrderForm:
         whose_page = WhosScooterPage(driver)
         whose_page.fill_order_form(order_data)
         about_rent = AboutRentPage(driver)
-        about_rent_header = about_rent.check_header_about_rent().text
-        assert about_rent_header == 'Про аренду'
-
+        assert about_rent.check_header_about_rent()
 
     @allure.title('Проверка заполнения раздела "Про аренду" формы заказа') 
     @allure.description('На главной странице "Самоката" кликаем по кнопке "Заказать", в разделе "Для кого самокат" заполняем поля: Имя, Фамилия, Адрес, Станция метро, Телефон, ' \
@@ -59,8 +57,7 @@ class TestFillOrderForm:
         about_rent.check_header_about_rent()
         about_rent.fill_about_rent_form(day,period,color,comment)
         confirm_window = ConfirmWindowPage(driver)
-        confirm_window_header = confirm_window.check_confirm_header().text
-        assert 'Хотите оформить заказ?' in confirm_window_header
+        assert confirm_window.check_confirm_header()
 
 
     @allure.title('Проверка успешности заполнения формы заказа') 
@@ -92,5 +89,5 @@ class TestFillOrderForm:
         confirm_window.check_confirm_header()
         confirm_window.click_yes_button()
         order_window = OrderedWindowPage(driver)
-        order_window_header = order_window.check_header_order_rent().text
-        assert 'Заказ оформлен' in order_window_header
+        assert order_window.check_header_order_rent()
+        

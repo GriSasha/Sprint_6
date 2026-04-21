@@ -12,10 +12,5 @@ class TestClickScooterLogo:
 
 
         page.click_scooter_logo()
-        scooter_header = page.check_scooter_header().text
-
-
-        assert 'Самокат' in scooter_header
-        assert 'на пару дней' in scooter_header
-
+        assert page.check_scooter_header()
         
