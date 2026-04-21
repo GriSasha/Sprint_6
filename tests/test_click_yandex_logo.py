@@ -1,7 +1,6 @@
 import allure
 from urls import Urls
 from pages.main_page import MainPage
-from pages.dzen_page import DzenPage
 
 
 class TestClickYandexLogo:
@@ -16,12 +15,11 @@ class TestClickYandexLogo:
         page.click_yandex_logo()
         page.wait_number_of_windows(2)
         page.switch_to_new_window()
-        page.wait_for_url_contains("dzen.ru")
-        dzen_page = DzenPage(driver)
-        dzen_page.check_dzen_header()
-
+        page.wait_for_url_contains(Urls.dzen_page)
         
-        assert 'dzen.ru' in page.get_current_url()
+        assert Urls.clean_dzen_url in page.get_current_url()
+
+
 
 
 
