@@ -16,14 +16,14 @@ class TestClickYandexLogo:
 
 
         page.click_yandex_logo()
-        WebDriverWait(driver, 10).until(EC.number_of_windows_to_be(2))
-        driver.switch_to.window(driver.window_handles[1])
-        WebDriverWait(driver, 10).until(EC.url_contains("dzen.ru"))
+        page.wait_number_of_windows(2)
+        page.switch_to_new_window()
+        page.wait_for_url_contains("dzen.ru")
         dzen_page = DzenPage(driver)
         dzen_page.check_dzen_header()
 
         
-        assert 'dzen.ru' in driver.current_url
+        assert 'dzen.ru' in page.get_current_url()
 
 
 
